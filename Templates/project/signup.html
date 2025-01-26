@@ -1,0 +1,114 @@
+{% extends 'project/projectnavbar.html' %}
+<head>
+    {% block title %} User Signup Page {% endblock %}
+    {% block user_login %} active {% endblock %}
+    {% block css %}
+    <style>
+        /* Styles for pop-up message */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            text-align: center;
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+<form class="container mt-4" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label><i style="font-weight: bold;">First Name</i></label><br>
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label><i style="font-weight: bold;">Last Name</i></label><br>
+            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name">
+        </div>
+    </div>
+
+     <div class="row mt-4">
+        <div class="form-group col-md-6">
+            <label><i style="font-weight: bold;">Username</i></label><br>
+            <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Enter username">
+        </div>
+          <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Gender</i></label><br>
+            <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;">
+            <div class="form-check form-check-inline">
+                <input type="radio" class="custom-control-input" name="gender" id="male" value="Male">
+                <label for="male" class="custom-control-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="custom-control-input" name="gender" id="female" value="Female">
+                <label for="female" class="custom-control-label">Female</label>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="form-group col-md-6">
+            <label><i style="font-weight: bold;">Password</i></label><br>
+            <input type="password" class="form-control" name="password1" id="password1" placeholder="Enter Password">
+        </div>
+        <div class="form-group col-md-6">
+            <label><i style="font-weight: bold;">Confirm Password</i></label><br>
+            <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm Password">
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-6">
+            <label><i style="font-weight: bold;">Email ID</i></label><br>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email Id">
+        </div>
+        <div class="form-group col-md-6">
+          <label><i style="font-weight: bold;">Contact Number</i></label><br>
+            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter Contact Number">
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-6">
+           <label><i style="font-weight: bold;">Profile Picture</i></label><br>
+            <input type="file" class="form-control" name="image" id="image" placeholder="Enter Last Name">
+        </div>
+    </div>
+
+
+    <br>
+<input type="submit" value="Submit" class="btn" style="background-color: #2B231D; color: white; font-size: larger; width: 8rem;">
+</form>
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Function to display the error pop-up
+        $(document).ready(function() {
+            {% if error %}
+            var errorMessage = "{{ error }}";
+            var popup = $('<div class="popup">' + errorMessage + '</div>');
+            $('body').append(popup);
+            popup.fadeIn();
+            setTimeout(function() {
+                popup.fadeOut(function() {
+                    $(this).remove();
+                });
+            }, 3000); // Adjust the duration (in milliseconds) as needed
+            {% endif %}
+        });
+    </script>
+    {% endblock %}
+    {% endblock %}
+</body>

@@ -1,0 +1,173 @@
+{% extends 'customer/customernavbar.html' %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories</title>
+  {% block css %}
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .img-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-wrapper > img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .img-wrapper > .content {
+      position: absolute;
+      inset: 0;
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, .4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Times New Roman', Times, serif;
+      color: #2B231D;
+    }
+
+    .img-wrapper > img,
+    .img-wrapper > .content {
+      transition: 200ms ease-in-out;
+    }
+
+    .img-wrapper:hover > img.blur {
+      filter: blur(5px);
+    }
+
+    .img-wrapper:hover > img.gray {
+      filter: grayscale(1);
+    }
+
+    .img-wrapper:hover > img.zoom {
+      transform: scale(1.1);
+    }
+
+    .img-wrapper > .content.fade {
+      opacity: 0;
+    }
+
+    .img-wrapper:hover > .content.fade {
+      opacity: 1;
+    }
+
+    .img-wrapper > .content.slide-left {
+      transform: translateX(-100%);
+    }
+
+    .img-wrapper:hover > .content.slide-left {
+      transform: translateX(0);
+    }
+
+    .img-wrapper > .content.slide-right {
+      transform: translateX(100%);
+    }
+
+    .img-wrapper:hover > .content.slide-right {
+      transform: translateX(0);
+    }
+
+    .img-wrapper > .content.slide-down {
+      transform: translateY(-100%);
+    }
+
+    .img-wrapper:hover > .content.slide-down {
+      transform: translateY(0);
+    }
+
+    .img-wrapper > .content.slide-up {
+      transform: translateY(100%);
+    }
+
+    .img-wrapper:hover > .content.slide-up {
+      transform: translateY(0);
+    }
+  </style>
+  {% endblock %}
+</head>
+<body>
+{% block body %}
+  <div class="grid">
+    <a href="homeaccessories">
+      <div class="img-wrapper">
+        <img class="blur" src="https://m.media-amazon.com/images/I/71I4OzmQE0L._SX679_.jpg">
+        <div class="content fade">Furniture</div>
+      </div>
+    </a>
+    <a href="mobiles">
+      <div class="img-wrapper">
+        <img class="zoom blur" src="https://i.pinimg.com/736x/7c/40/08/7c40089fe5068855fdf888bd2ac37e3d.jpg">
+        <div class="content fade">Mobiles</div>
+      </div>
+    </a>
+    <a href="shirts">
+      <div class="img-wrapper">
+        <img class="blur" src="https://www.aristobrat.in/cdn/shop/files/ClassicShirt_FrenchBlue_New5.jpg?v=1709565676&width=1000">
+        <div class="content slide-left">Shirts</div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="img-wrapper">
+        <img class="blur" src="https://cdn.staticans.com/image/tr:e-sharpen-01,h-1000,w-1000,cm-pad_resize/data/philips/08sept2023/250-2023_04_22-product.jpg">
+        <div class="content slide-right">Kitchen Appliances</div>
+      </div>
+    </a>
+    <a href="babycare">
+      <div class="img-wrapper">
+        <img class="blur" src="https://i.pinimg.com/474x/05/ca/8b/05ca8b008aff0d4598bc72d77bc3acb1.jpg">
+        <div class="content slide-up">BabyCare</div>
+      </div>
+    </a>
+    <a href="women">
+      <div class="img-wrapper">
+        <img class="blur" src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSG9ytyoen8rA-fLg0cOUV6q2kPGudREYH24nm6aVaq6eFHBMEAu_W1NFDMrfkPRxkIU6_zfT9TaMwMhWWeIZWkaS0et7vthzRozBG7ZSUMsDp7t-7yUGC_&usqp=CAc">
+        <div class="content slide-down">Women fashion</div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="img-wrapper">
+        <img class="blur" src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRRRjzJ1p0loLHTpwenkPkpIKiJfU4SMMGwdTWukAbITlz4quS1jAXlEq0cGsU-7siAWeCXZRP9c-mQaQDl6SgSk-aUgtGPqC0N8X1NbvG_sqv1uUHKfllPvw&usqp=CAE">
+        <div class="content slide-down">Kids Fashion</div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="img-wrapper">
+        <img class="blur" src="https://i.pinimg.com/originals/96/bb/8d/96bb8dd39d8356b03d1ed668d8042797.jpg">
+        <div class="content slide-down">Sports & Fitness</div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="img-wrapper">
+        <img class="blur" src="https://i.pinimg.com/564x/79/b9/99/79b999ec61f78cad8ed3885026806dcf.jpg">
+        <div class="content slide-down">Books & Media</div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="img-wrapper">
+        <img class="blur" src="https://i.pinimg.com/564x/14/ef/a0/14efa01bdf95649ecb69720f8c2fa214.jpg">
+        <div class="content slide-down">Grocery, Vegetables & Fruits</div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="img-wrapper">
+        <img class="blur" src="https://ecommercephotographyindia.com/assets/img/gallery/cosmetics-products-photography1.jpg">
+        <div class="content slide-down">Health & Beauty</div>
+      </div>
+    </a>
+  </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'project/projectnavbar.html' %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartSpend</title>
+</head>
+<body>
+
+{% block body %}
+  <section class="hero">
+    <div class="container">
+      <h2 id="demo"></h2>
+
+<script>
+var i = 0;
+var txt = 'Welcome to SmartSpend';
+var speed = 125;
+
+window.onload = function() {
+    typeWriter();
+};
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+
+      <p>Discover amazing deals and shop for your favorite products.</p>
+      <a href="customer_login" class="btn">Shop Now</a>
+    </div>
+  </section>
+{% endblock %}
+</body>
+</html>
+
+
+

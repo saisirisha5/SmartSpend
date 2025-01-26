@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'project/projectnavbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Now - SmartSpend</title>
+</head>
+<body>
+{% block body %}
+<header>
+    <!-- Include your navigation bar here if needed -->
+</header>
+
+<section class="products">
+    <div class="container">
+        <h2>  </h2>
+        <!-- Product listings -->
+        <div class="row">
+            <!-- Example product card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="product-image.jpg" class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Name</h5>
+                        <p class="card-text">Product Description</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more product cards as needed -->
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+</body>
+</html>

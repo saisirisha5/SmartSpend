@@ -1,0 +1,79 @@
+{% extends 'customer/customernavbar.html' %}
+
+{% block body %}
+<style>
+  .card-img-top {
+    width: 100%;
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: contain; /* Ensures the entire image is visible without distortion */
+    background-color: #f8f9fa; /* Add a background color to fill the empty space around the image */
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  .btn-primary {
+    background-color: #4CAF50 !important; /* Green background */
+    border: none !important; /* Remove borders */
+    color: white !important; /* White text */
+  }
+  .btn-primary:hover {
+    background-color: white !important; /* White background on hover */
+    color: black !important; /* Black text on hover */
+    border: 2px solid #4CAF50 !important; /* Add a border on hover */
+  }
+  .search-bar {
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+  }
+  .search-input {
+    width: 100%;
+    border-radius: 0;
+  }
+  .search-button {
+    border-radius: 0;
+  }
+  .search-button:hover {
+    background-color: #45a049 !important;
+    color: white !important;
+  }
+</style>
+<br>
+<center>
+    <div class="search-bar">
+        <form action="{% url 'search_product' %}" method="GET" class="input-group">
+            <input type="text" name="q" placeholder="Search products" class="form-control search-input">
+            <button type="submit" class="btn btn-primary search-button">Search</button>
+        </form>
+    </div>
+</center>
+<br>
+<div class="container">
+  <div class="row">
+    {% for product in home %}
+    <div class="col-md-4 mb-4 d-flex">
+      <div class="card w-100">
+        <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <h6 class="card-text">Price: <span style="color: #8B0000; font-weight: bold;">Rs.{{ product.price }}</span></h6>
+          <h6 class="card-text">Rating: {{ product.review }}</h6>
+          <h6 class="card-text">From: <span style="color: #8B0000; font-weight: bold;">{{ product.website }}</span></h6>
+          <a href="{{ product.buy }}" class="btn btn-primary mt-auto" target="_blank">Shop</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

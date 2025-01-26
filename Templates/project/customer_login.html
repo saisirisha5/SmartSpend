@@ -1,0 +1,59 @@
+{% extends 'project/projectnavbar.html' %}
+{% block title %} User Login Page {% endblock %}
+{% block login %} active {% endblock %}
+{% block css %}
+<style>
+    /* Popup styles */
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        z-index: 9999;
+        display: none;
+        text-align: center; /* Center the text horizontally */
+    }
+</style>
+{% endblock %}
+{% block body %}
+{% if error %}
+    <div class="popup">{{ error }}</div>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="container mt-5">
+        <h6>Haven't registered yet? Click here:
+            <a href="/signup" class="btn btn-primary">Signup</a>
+        </h6>
+        <div class="mb-3">
+            <label for="user_name" class="form-label"><i style="font-weight: bold;">Username</i></label>
+            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Enter Username">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label"><i style="font-weight: bold;">Password</i></label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+        </div>
+        <a href="forgot_password">Forgot password</a>
+        <br>
+        <button type="submit" class="btn btn-primary" style="width: 8rem;">Submit</button>
+    </div>
+</form>
+
+{% block js %}
+<script>
+    {% if error %}
+    document.addEventListener("DOMContentLoaded", function() {
+        var popup = document.querySelector('.popup');
+        popup.style.display = 'block';
+        setTimeout(function() {
+            popup.style.display = 'none';
+        }, 3000); // Adjust the duration (in milliseconds) as needed
+    });
+    {% endif %}
+</script>
+{% endblock %}
+{% endblock %}

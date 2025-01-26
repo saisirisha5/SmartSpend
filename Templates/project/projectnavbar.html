@@ -1,0 +1,131 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartSpend</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <style>
+        /* Your custom styles go here */
+        .navbar {
+            font-size: 25px;
+            color: #2B231D;  /* Adjust the font size as needed */
+
+        }
+
+        .navbar-brand {
+            font-size: 25px; /* Adjust the font size as needed */
+            font-weight: bold;
+            color: #D0CBCC;
+              font-family: 'Times New Roman', Times, serif;
+        }
+      .navbar-brand1,
+        .navbar-nav .nav-link {
+            font-size: 20px; /* Adjust the font size as needed */
+            font-weight: bold;
+            color: #D0CBCC;
+              font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2B231D">
+  <div class="container-fluid">
+    <b><a class="navbar-brand" href="/">SmartSpend</a></b>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/customer_login">Home</a>
+        </li>
+          </ul>
+        <div class="ms-auto">
+              <div class="collapse navbar-collapse" >
+      <ul class="navbar-nav">
+
+          <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/customer_login">Categories</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/about">About</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/signup">SignUp</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/customer_login">Login</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/contact">Contact</a>
+        </li>
+      </ul></div>
+        </div>
+
+    </div>
+  </div>
+</nav>
+{% block body %}
+
+{% endblock %}
+
+<footer id="sticky-footer" class="flex-shrink-0 py-2">
+    <div class="container text-center">
+      <small>Copyright &copy; Team-24 - K L University. All rights reserved</small>
+    </div>
+  </footer>
+<style>
+  #sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2B231D ; /* Set the desired background color */
+  color: #D0CBCC; /* Set the desired text color */
+  padding: 10px; /* Adjust the padding as needed */
+  font-weight: bold;
+}
+   .container {
+      width: 90%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+	.btn {
+      display: inline-block;
+      background: #2B231D;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background: #555;
+    }
+
+
+    .hero {
+      background: #f4f4f4;
+      padding: 200px 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+
+</style>
+</body>
+</html>
