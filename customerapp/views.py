@@ -1,10 +1,10 @@
 import uuid
-
 from django.shortcuts import redirect
 from .models import Product
 from django.http import HttpResponse
 import random
 from django.shortcuts import render
+from django.core.mail import send_mail
 
 
 def customerhomepage(request):
@@ -47,9 +47,20 @@ def women(request):
     return render(request,'customer/women.html',{'fashion':fashion})
 
 def contact(request):
-    if request.method == 'POST':
-        return HttpResponse("<h1>Succesfully sent</h1>")
-    return render(request,'customer/contact.html')
+     if request.method == 'POST':
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        email = request.POST.get('email')
+        comment = request.POST.get('comment')
+        message = f"Name: {firstname} {lastname}\nEmail: {email}\nComment: {comment}"
+        send_mail(
+            'New Contact Form Submission',
+            message,
+            email,  # from email
+            ['prabhalasaisirisha25@gmail.com'],  # to email
+        )
+        return render(request,'customer/contact.html')
+     return render(request,'customer/contact.html')
 
 
 def search_product(request):
